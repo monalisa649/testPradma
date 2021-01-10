@@ -1,0 +1,76 @@
+
+
+.container {
+  max-width: 100%;
+  height:700px;
+  background-image: url('src/assets/img/fondoOscuro.jpg');
+  font-family: arial;
+}
+
+.login-page{
+    position: relative;
+    z-index: 1;
+    float: right;
+    max-width: 25%;
+    height: 500px;
+    padding: 8% 0 0;
+    margin: 45px;
+    margin-right: 15px;
+    border-radius: 25px;
+    background: white;
+  }
+
+img {
+  width: 60%;
+  margin-left: 15px;
+
+
+}
+
+.form {
+
+  margin: 0px auto;
+  width: 100%;
+  padding: 2%;
+}
+.form input {
+  width: 90%;
+  border:none;
+  border-bottom: 1px solid rgb(236, 24, 24);
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.form input[type= password]{
+border-bottom: 1px solid  rgb(74, 192, 232, 1);
+}
+.form button {
+  background: #b2b2b4;
+  width: 96%;
+  align-items: center;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  margin-top: 30px;
+  color: #FFFFFF;
+  font-size: 16px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: rgb(74, 192, 232, 1);
+}
+
+p{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(74, 192, 232, 1);
+}
+
