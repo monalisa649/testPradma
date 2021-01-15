@@ -1,1 +1,45 @@
-<p>product works!</p>
+<div id="layout-new-product">
+
+  <h2>Crear producto</h2>
+
+  <div id="container-form">
+
+    <form autocomplete="off" [formGroup]='form' (ngSubmit)="guardar()">
+
+      <div>
+      <label for="">Código</label>
+      <input type="text" formControlName="codigo" placeholder="Código">
+      </div>
+
+      <div>
+        <label for="">Nombre</label>
+        <input type="text" formControlName="codigo" placeholder="Nombre">
+        </div>
+
+        <div>
+          <label for="">Valor nitario</label>
+          <input type="numbre" formControlName="codigo" placeholder="Valor unitario">
+          </div>
+
+          <div>
+            <label for="">Iva</label>
+            <select name="select" formControlName="iva">
+              <option value="value1">IVA 69</option>
+              <option value="value2" selected>IVA 68</option>
+              <option value="value3">IVA 67</option>
+              <option value="value3">IVA 6</option>
+            </select>
+
+
+            </div>
+      <input type="submit" value="Crear">
+
+
+
+    </form>
+
+
+
+  </div>
+
+</div>
