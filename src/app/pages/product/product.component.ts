@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { User } from 'src/app/models/user.model'
+
 
 
 @Component({
@@ -13,7 +13,7 @@ import { User } from 'src/app/models/user.model'
 export class ProductComponent implements OnInit {
 
     form: FormGroup;
-    user : User;
+
 
 
   constructor( ) {
