@@ -8,18 +8,34 @@
 
       <div>
       <label for="">Código</label>
-      <input type="text" formControlName="codigo" placeholder="Código">
+      <input type="text"
+      formControlName="codigo"
+      placeholder="Código">
       </div>
+      <span class="is-invalid" *ngIf="codigoNoValido">
+        *El numero de código es obligatorio
+      </span>
 
       <div>
         <label for="">Nombre</label>
-        <input type="text" formControlName="codigo" placeholder="Nombre">
+        <input type="text"
+        formControlName="nombre"
+        placeholder="Nombre">
         </div>
+        <span class="is-invalid" *ngIf="nombreNoValido">
+          *El nombre es obligatorio
+        </span>
 
         <div>
           <label for="">Valor nitario</label>
-          <input type="numbre" formControlName="codigo" placeholder="Valor unitario">
+          <input type="text"
+          formControlName="valorUni"
+          placeholder="Valor unitario">
           </div>
+          <span class="is-invalid" *ngIf="valorNoValido">
+            *El Valor unitario es obligatorio
+          </span>
+
 
           <div>
             <label for="">Iva</label>
@@ -32,7 +48,10 @@
 
 
             </div>
-      <input type="submit" value="Crear">
+            <span class="is-invalid" *ngIf="ivaNoValido">
+              *Seleccione al menos un campo
+            </span>
+      <button type="submit" [disabled]="!form.valid">Crear</button>
 
 
 
@@ -43,3 +62,15 @@
   </div>
 
 </div>
+
+<hr>
+<pre>
+  Estado del formulario {{form.valid}}
+<br>
+Estatus : {{form.status}}
+</pre>
+
+<pre>
+  {{form.value | json}}
+</pre>
+

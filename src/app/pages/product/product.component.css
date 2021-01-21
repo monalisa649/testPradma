@@ -21,6 +21,17 @@ h2{
 
 }
 
+.is-invalid{
+  font-size: 10px;
+  padding: 3px;
+  margin-left: 12px;
+  color: rgb(236, 24, 24);
+}
+
+button[disabled]{
+  opacity: 0.6;
+}
+
 
 
 

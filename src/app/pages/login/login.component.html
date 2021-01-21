@@ -3,10 +3,21 @@
 <div class="login-page">
   <img src="./assets/img/logo.jpg" alt="logo empresa">
   <div class="form">
-    <form class="register-form" [formGroup]= "contactForm" class="register">
-      <input type="email"  formControlName="email"  placeholder="Correo electrónico">
-      <input type="password" formControlName="password" placeholder="Contraseña" >
-      <button type="submit" class="btn-login">Ingresar</button>
+    <form class="register-form" [formGroup]= "contactForm" class="register" (ngSubmit)="enviar()">
+      <input type="email"
+      formControlName="email"
+      placeholder="Correo electrónico">
+      <span  class="is-invalid" *ngIf="emailNoValido">
+        *El email es obligatorio
+      </span>
+      <input type="password"
+      formControlName="password"
+      placeholder="Contraseña" >
+      <span  class="is-invalid"
+      *ngIf="passwordNoValido">
+        *La contraseña es obligatoria
+      </span>
+      <button type="submit" class="btn-login" [disabled]="!contactForm.valid">Ingresar</button>
     </form>
 
   </div>
@@ -16,5 +27,16 @@
 
 </div>
 </div>
+
+<hr>
+<pre>
+  Estado del formulario {{contactForm.valid}}
+<br>
+Estatus : {{contactForm.status}}
+</pre>
+
+<pre>
+  {{contactForm.value | json}}
+</pre>
 
 

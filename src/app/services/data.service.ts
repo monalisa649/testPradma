@@ -13,12 +13,12 @@ export class DataService {
 
   constructor(
     private http : HttpClient,
-    private headers : HttpHeaders
+
     ) { }
 
 login(){
 
-
+  return this.http.get( 'https://blitz-dev1.azurewebsites.net/ms-user/api/users/login');
 
 }
 

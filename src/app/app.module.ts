@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductComponent } from './pages/product/product.component';
+import { InterceptorHttpService } from './interceptors/interceptorhttp.service';
 
 
 @NgModule({
@@ -27,7 +28,12 @@ import { ProductComponent } from './pages/product/product.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorHttpService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

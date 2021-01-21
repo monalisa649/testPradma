@@ -1,6 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { User } from 'src/app/models/user.model'
 
 
 @Component({
@@ -11,23 +13,41 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ProductComponent implements OnInit {
 
     form: FormGroup;
+    user : User;
 
 
-  constructor( private fb: FormBuilder) {
+  constructor( ) {
 
-    this.crearForm();
+    this.form = this.crearForm();
+
 
   }
 
   ngOnInit(): void {
   }
 
+  get codigoNoValido(){
+    return this.form.get('codigo').invalid && this.form.get('codigo').touched
+  }
+
+  get nombreNoValido(){
+    return this.form.get('nombre').invalid && this.form.get('nombre').touched
+  }
+
+  get valorNoValido(){
+    return this.form.get('valorUni').invalid && this.form.get('valorUni').touched
+  }
+
+  get ivaNoValido(){
+    return this.form.get('iva').invalid && this.form.get('iva').touched
+  }
+
   crearForm(){
-    this.form = this.fb.group({
-      codigo : [''],
-      nombre : [''],
-      valorUni : [''],
-      iva : ['']
+    return new FormGroup({
+      codigo : new FormControl ('', [Validators.required, Validators.pattern('^[0-9]+'), Validators.minLength(3)]),
+      nombre : new FormControl ('', [Validators.required, Validators.minLength(3)]),
+      valorUni : new FormControl ('',[Validators.required, Validators.pattern('^[0-9]+')]),
+      iva : new FormControl ('', Validators.required),
     });
   }
 
