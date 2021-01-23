@@ -5,6 +5,7 @@ import {  HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserI } from '../models/user.model';
 import {  Product } from '../models/product.model';
 import { Observable } from 'rxjs';
+import { ErrorI } from '../models/error.interface';
 
 
 @Injectable({
@@ -20,7 +21,7 @@ export class DataService {
 
 login(form:UserI):Observable<any>{
 
-  return this.http.post( this.url , form);
+  return this.http.post<any>( this.url , form);
 
 }
 

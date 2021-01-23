@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
 
+import { ErrorI } from '../../models/error.interface';
 import { UserI } from '../../models/user.model';
+
+
+import { error } from '@angular/compiler/src/util';
+
 
 @Component({
   selector: 'app-login',
@@ -16,8 +22,14 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(5) ] ),
   })
 
+  error : boolean = false;
+  message: string;
 
-  constructor( public _dataService : DataService) {
+
+  constructor(
+    public _dataService : DataService,
+    public router : Router
+    ) {
 
 
   }
@@ -38,7 +50,22 @@ export class LoginComponent implements OnInit {
 
   login(form:UserI){
     this._dataService.login(form).subscribe(res=> {
-      console.log(res);
+     let response = res;
+      if (response){
+       localStorage.setItem('token', response);
+       this.router.navigateByUrl('/products');
+     }else{
+       console.log(error);
+
+     }
+
+    }, error =>{
+      console.log(error.error);
+      this.error = true;
+      this.message = error.error.message;
+      console.log(error.error.message);
+
+
     })
   }
 

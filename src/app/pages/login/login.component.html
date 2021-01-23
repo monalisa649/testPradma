@@ -23,9 +23,13 @@
   </div>
   <p><a href="http://">¿Olvidaste tu contraseña?</a></p>
 
-
+  <span class="is-invalid" *ngIf="error">
+    <p >{{message}}</p>
+  </span>
 
 </div>
+
+
 </div>
 
 <hr>
