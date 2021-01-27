@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import {  HttpClient, HttpHeaders } from '@angular/common/http';
+import {  HttpClient } from '@angular/common/http';
 
 //Models
 import { UserI } from '../models/user.model';
-import {  Product } from '../models/product.model';
+
 import { Observable } from 'rxjs';
-import { ErrorI } from '../models/error.interface';
+import { map, filter } from 'rxjs/operators';
+
 
 
 @Injectable({
@@ -14,10 +15,13 @@ import { ErrorI } from '../models/error.interface';
 export class DataService {
 
     public url = 'https://blitz-dev1.azurewebsites.net/ms-user/api/users/login';
-  constructor(
-    private http : HttpClient,
 
-    ) { }
+
+
+    constructor( private http : HttpClient ) {
+
+     /* this.headers.append("Authorization", "Bearer" + localStorage.getItem('token'));*/
+     }
 
 login(form:UserI):Observable<any>{
 
@@ -26,7 +30,10 @@ login(form:UserI):Observable<any>{
 }
 
 getProducts(){
-
+  return this.http.get('https://blitz-dev1.azurewebsites.net/ms-e-bill/api/product?page=1')
+  .pipe(map(res => {
+    return res['results'].filter(item => item.url_image != "www.goog.com")
+  }));
 }
 
 newProduct(){

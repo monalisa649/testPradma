@@ -15,12 +15,14 @@ import { ProductComponent } from './pages/product/product.component';
 import { InterceptorHttpService } from './interceptors/interceptorhttp.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProductsComponent,
     ProductComponent
+
   ],
   imports: [
     BrowserModule,

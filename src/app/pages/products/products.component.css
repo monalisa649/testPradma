@@ -27,6 +27,11 @@ h2{
   background: white;
 }
 
+h3{
+  background: white;
+  font-weight: normal;
+}
+
 
 i{
   background-color: rgba(88, 189, 191, 1);
@@ -167,7 +172,9 @@ p{
 }
 
 img{
-  width: 70%;
+  width: 50%;
+  padding: 15px;
+  background: white;
 }
 
 .Layout-products button{

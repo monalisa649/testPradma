@@ -1,11 +1,12 @@
-export interface Product {
+export interface ProductsI {
   total:    number;
   page:     number;
   per_page: number;
-  results:  Result[];
-}
+  results:  Results[]
+  }
 
-export interface Result {
+
+export interface Results {
   code:      string;
   name:      string;
   url_image: string;

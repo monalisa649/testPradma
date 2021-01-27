@@ -33,59 +33,15 @@
     </div>
 
     <div class="Layout-products">
-      <div id="grid">
-        <img src="assets/img/logo.jpg" alt="">
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <p>Una grid</p>
+      <div id="grid" *ngFor="let prod of products">
+        <img src={{prod.url_image}}  alt="">
+        <h3>{{prod.name}}</h3>
+        <p>{{prod.code}}</p>
+        <p>Lote:</p>
         <button class="info">Editar</button>
         <button class="warning">Borrar</button>
       </div>
 
-      <div id="grid" >
-        <img src="assets/img/logo.jpg" alt="">
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <button class="info">Editar</button>
-        <button class="warning">Borrar</button>
-      </div>
-
-      <div id="grid">
-        <img src="assets/img/logo.jpg" alt="">
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <button class="info">Editar</button>
-        <button class="warning">Borrar</button>
-      </div>
-
-      <div id="grid">
-        <img src="assets/img/logo.jpg" alt="">
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <button class="info">Editar</button>
-        <button class="warning">Borrar</button>
-      </div>
-
-      <div id="grid">
-        <img src="assets/img/logo.jpg" alt="">
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <button class="info">Editar</button>
-        <button class="warning">Borrar</button>
-      </div>
-
-      <div id="grid">
-        <img src="assets/img/logo.jpg" alt="">
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <p>Una grid</p>
-        <button class="info">Editar</button>
-        <button class="warning">Borrar</button>
-      </div>
 
 
     </div>
