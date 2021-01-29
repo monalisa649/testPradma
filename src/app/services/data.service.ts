@@ -19,8 +19,6 @@ export class DataService {
 
 
     constructor( private http : HttpClient ) {
-
-     /* this.headers.append("Authorization", "Bearer" + localStorage.getItem('token'));*/
      }
 
 login(form:UserI):Observable<any>{
@@ -36,8 +34,8 @@ getProducts(){
   }));
 }
 
-newProduct(){
-
+getTaxes(){
+return this.http.get('https://blitz-dev1.azurewebsites.net/ms-e-bill/api/taxes');
 }
 
 }

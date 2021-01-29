@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { DataService } from '../../services/data.service';
+
 
 
 
@@ -16,7 +18,7 @@ export class ProductComponent implements OnInit {
 
 
 
-  constructor( ) {
+  constructor( public _dataService: DataService ) {
 
     this.form = this.crearForm();
 
@@ -24,6 +26,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getTaxes();
   }
 
   get codigoNoValido(){
@@ -53,6 +56,14 @@ export class ProductComponent implements OnInit {
 
   guardar(){
     console.log(this.form);
+  }
+
+  getTaxes(){
+    this._dataService.getTaxes()
+    .subscribe(res => {
+      console.log(res);
+    })
+
   }
 
 }
